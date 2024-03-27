@@ -22,6 +22,7 @@ public class AlquilerAdapter implements AlquilerServiceOut {
     @Override
     public AlquilerDTO crearAlquilerOut(AlquilerDTO alquilerDTO) {
         AlquilerEntity alquilerEntity = alquilerMapper.mapToEntity(alquilerDTO);
+        alquilerEntity.setDateCreate(getTimestamp());
         alquilerRepository.save(alquilerEntity);
         return alquilerMapper.mapToDto(alquilerEntity);
     }
@@ -56,6 +57,8 @@ public class AlquilerAdapter implements AlquilerServiceOut {
            entity.get().setEstado(Constants.STATUS_INACTIVE);
            entity.get().setDateDelete(getTimestamp());
            entity.get().setUsuarioDelete(usuario);
+           alquilerRepository.save(entity.get());
+           return alquilerMapper.mapToDto(entity.get());
         }
         return null;
     }

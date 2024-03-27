@@ -3,7 +3,6 @@ package com.codigo.alquiler.application.controller;
 import com.codigo.alquiler.domain.aggregates.dto.AlquilerDTO;
 import com.codigo.alquiler.domain.ports.in.AlquilerServiceIn;
 import lombok.RequiredArgsConstructor;
-import org.apache.coyote.Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +14,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class AlquilerController {
 
-    private AlquilerServiceIn alquilerServiceIn;
+    private final AlquilerServiceIn alquilerServiceIn;
 
     @PostMapping
     public ResponseEntity<AlquilerDTO> registrar(@RequestBody AlquilerDTO alquilerDTO){
@@ -46,7 +45,7 @@ public class AlquilerController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<AlquilerDTO> eliminar(@PathVariable Long id, @RequestHeader String usuario){
+    public ResponseEntity<AlquilerDTO> eliminar(@PathVariable Long id, @RequestHeader("usuario") String usuario){
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(alquilerServiceIn.deleteIn(id, usuario));

@@ -14,7 +14,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class AlquilerServiceImpl implements AlquilerServiceIn {
 
-    private AlquilerServiceOut alquilerServiceOut;
+    private final AlquilerServiceOut alquilerServiceOut;
     @Override
     public AlquilerDTO crearAlquilerIn(AlquilerDTO alquilerDTO) {
         return alquilerServiceOut.crearAlquilerOut(alquilerDTO);

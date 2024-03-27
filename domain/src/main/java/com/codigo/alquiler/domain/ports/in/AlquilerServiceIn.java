@@ -1,10 +1,10 @@
 package com.codigo.alquiler.domain.ports.in;
 
 import com.codigo.alquiler.domain.aggregates.dto.AlquilerDTO;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
-
+@Service
 public interface AlquilerServiceIn {
     AlquilerDTO crearAlquilerIn(AlquilerDTO alquilerDTO);
     AlquilerDTO obtenerAlquilerIn(Long id);

@@ -34,15 +34,15 @@ public class AlquilerEntity {
     private String longitudRecojo;
     @Column(name = "estado")
     private Integer estado;
-    @Column(name = "usuario_create", nullable = false, length = 10)
+    @Column(name = "usuario_create", length = 10)
     private String usuarioCreate;
     @Column(name = "date_create")
     private Timestamp dateCreate;
-    @Column(name = "usuario_update", nullable = false, length = 10)
+    @Column(name = "usuario_update", length = 10)
     private String usuarioUpdate;
     @Column(name = "date_update")
     private Timestamp dateUpdate;
-    @Column(name = "usuario_delete", nullable = false, length = 10)
+    @Column(name = "usuario_delete", length = 10)
     private String usuarioDelete;
     @Column(name = "date_delete")
     private Timestamp dateDelete;
